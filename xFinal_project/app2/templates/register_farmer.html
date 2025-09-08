@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}Register Farmer{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Register New Farmer</h2>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label for="id_farmer_name" class="form-label">Farmer Name</label>
+                <input type="text" class="form-control" id="id_farmer_name" name="farmer_name" required>
+            </div>
+            <div class="col-md-6">
+                <label for="id_date_of_birth" class="form-label">Date of Birth</label>
+                <input type="date" class="form-control" id="id_date_of_birth" name="date_of_birth" required>
+            </div>
+            <div class="col-md-6">
+                <label for="id_gender" class="form-label">Gender</label>
+                <select class="form-select" id="id_gender" name="gender" required>
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="id_farmer_nin" class="form-label">Farmer NIN</label>
+                <input type="text" class="form-control" id="id_farmer_nin" name="farmer_nin" required>
+            </div>
+            <div class="col-md-6">
+                <label for="id_phone_number" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" id="id_phone_number" name="phone_number" required>
+            </div>
+            <div class="col-md-6">
+                <label for="id_recommender_name" class="form-label">Recommender Name</label>
+                <input type="text" class="form-control" id="id_recommender_name" name="recommender_name" required>
+            </div>
+            <div class="col-md-6">
+                <label for="id_recommender_nin" class="form-label">Recommender NIN</label>
+                <input type="text" class="form-control" id="id_recommender_nin" name="recommender_nin" required>
+            </div>
+            <div class="col-md-6">
+                <label for="id_address" class="form-label">Address</label>
+                <input type="text" class="form-control" id="id_address" name="address" required>
+            </div>
+            <div class="col-md-6">
+                <label for="id_email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="id_email" name="email" required>
+            </div>
+            <div class="col-md-6">
+                <label for="registration_date" class="form-label">Registration date</label>
+                <input type="date" class="form-control" id="id_registration_date" name="registration_date" required>
+            </div>
+            <div class="col-md-6">
+                <label for="id_recommender_tel" class="form-label">Recommender Phone</label>
+                <input type="text" class="form-control" id="id_recommender_tel" name="recommender_tel" required>
+            </div>
+            <div class="col-md-6">
+                <label for="id_farmer_type" class="form-label">Farmer Type</label>
+                <select class="form-select" id="id_farmer_type" name="farmer_type" required>
+                    <option value="" disabled selected>Select Farmer Type</option>
+                    <option value="Starter">Starter</option>
+                    <option value="Returning">Returning</option>
+                </select>
+            </div>
+            <div class="col-12 mt-4">
+                <button type="submit" class="btn btn-primary">Register Farmer</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

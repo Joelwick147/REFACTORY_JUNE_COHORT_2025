@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="mt-3 mb-4">Welcome, {{ user.username }}!</h1>
+      <div class="row g-3">
+
+        <div class="col-md-6">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-users text-primary me-2"></i>Users Overview</h5>
+              <p class="card-text">Total registered users, active users, and roles summary here.</p>
+              <a href="#" class="btn btn-outline-primary btn-sm">Manage Users</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-chart-pie text-success me-2"></i>Performance Reports</h5>
+              <p class="card-text">View detailed analytics and sales reports.</p>
+              <a href="#" class="btn btn-outline-success btn-sm">Go to Reports</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

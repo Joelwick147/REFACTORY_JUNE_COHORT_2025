@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Register User{% endblock %}
+
+{% block content %}
+<h2 class="mb-4 text-center">Register New User</h2>
+
+<form method="post" novalidate>
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="id_username" class="form-label"><i class="fas fa-user"></i> Username</label>
+    <input type="text" class="form-control" id="id_username" name="username" required placeholder="Enter username" />
+  </div>
+
+  <div class="mb-3">
+    <label for="id_password1" class="form-label"><i class="fas fa-lock"></i> Password</label>
+    <input type="password" class="form-control" id="id_password1" name="password1" required placeholder="Enter password" />
+  </div>
+
+  <div class="mb-3">
+    <label for="id_password2" class="form-label"><i class="fas fa-lock"></i> Confirm Password</label>
+    <input type="password" class="form-control" id="id_password2" name="password2" required placeholder="Confirm password" />
+  </div>
+
+  <div class="mb-4">
+    <label for="id_role" class="form-label"><i class="fas fa-user-tag"></i> Role</label>
+    <select class="form-select" id="id_role" name="role" required>
+      <option value="" disabled selected>Select role</option>
+      <option value="brooder_manager">Brooder Manager</option>
+      <option value="sales_rep">Sales Rep</option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary w-100">Register</button>
+
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-danger mt-3" role="alert">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+</form>
+{% endblock %}

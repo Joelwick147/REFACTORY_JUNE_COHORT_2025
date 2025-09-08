@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Brooder Manager Report{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="mb-4">Brooder Manager Report</h2>
+    <p class="lead text-muted">A quick overview of key metrics for chick and feed stock, and farmer demographics.</p>
+    
+    <div class="row g-4 mb-5">
+        <!-- Total Chick Stock -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm h-100 border-primary">
+                <div class="card-body">
+                    <h5 class="card-title text-primary"><i class="fas fa-cubes me-2"></i> Total Chick Stock</h5>
+                    <h1 class="card-text display-4 fw-bold">{{ total_chicks }}</h1>
+                    <hr>
+                    <p class="mb-1 fw-bold">Breakdown by Type:</p>
+                    <ul class="list-unstyled mb-0">
+                        <li><span class="badge bg-secondary me-1">Exotic</span> {{ exotic_chicks }}</li>
+                        <li><span class="badge bg-secondary me-1">Local</span> {{ local_chicks }}</li>
+                    </ul>
+                    <p class="mb-1 mt-2 fw-bold">Breakdown by Breed:</p>
+                    <ul class="list-unstyled mb-0">
+                        <li><span class="badge bg-secondary me-1">Broiler</span> {{ broiler_chicks }}</li>
+                        <li><span class="badge bg-secondary me-1">Layer</span> {{ layer_chicks }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Total Feed Stock -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm h-100 border-info">
+                <div class="card-body">
+                    <h5 class="card-title text-info"><i class="fas fa-warehouse me-2"></i> Feed Stock Overview</h5>
+                    <h1 class="card-text display-4 fw-bold">{{ total_feed_quantity }}</h1>
+                    <p class="card-text text-muted">Total bags of feed in stock.</p>
+                    <hr>
+                    <p class="mb-1 fw-bold text-success">Potential Profit</p>
+                    <p class="fs-4 fw-bold text-success">UGX {{ total_potential_profit|floatformat:2 }}</p>
+                    <p class="text-muted small">Based on selling all current feed stock at listed prices.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Farmer Demographics -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm h-100 border-success">
+                <div class="card-body">
+                    <h5 class="card-title text-success"><i class="fas fa-user-friends me-2"></i> Total Farmers</h5>
+                    <h1 class="card-text display-4 fw-bold">{{ total_farmers }}</h1>
+                    <hr>
+                    <p class="mb-1 fw-bold">Breakdown by Type:</p>
+                    <ul class="list-unstyled mb-0">
+                        <li><span class="badge bg-secondary me-1">Starter</span> {{ starter_farmers }}</li>
+                        <li><span class="badge bg-secondary me-1">Returning</span> {{ returning_farmers }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

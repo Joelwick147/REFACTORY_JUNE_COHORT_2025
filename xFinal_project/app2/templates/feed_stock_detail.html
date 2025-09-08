@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Feed Stock Detail{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="mb-4">Feed Stock Detail</h2>
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title">{{ feed_item.name }} - {{ feed_item.feed_brand }}</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Type:</strong> {{ feed_item.feed_type }}</li>
+                <li class="list-group-item"><strong>Quantity:</strong> {{ feed_item.quantity }} bags</li>
+                <li class="list-group-item"><strong>Unit Price:</strong> UGX {{ feed_item.unit_price }}</li>
+                <li class="list-group-item"><strong>Supplier:</strong> {{ feed_item.supplier }}</li>
+                <li class="list-group-item"><strong>Supplier Contact:</strong> {{ feed_item.supplier_contact }}</li>
+            </ul>
+        </div>
+        <div class="card-footer text-end">
+            <a href="{% url 'manage_feed_stock' %}" class="btn btn-secondary">Back to Feed Stock</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

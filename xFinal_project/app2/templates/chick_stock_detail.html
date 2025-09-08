@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Chick Stock Detail{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="mb-4">Chick Stock Detail</h2>
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title">{{ chick_stock.chick_breed }} Chick Batch #{{ chick_stock.batch_number }}</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Type:</strong> {{ chick_stock.chick_type }}</li>
+                <li class="list-group-item"><strong>Quantity:</strong> {{ chick_stock.chick_quantity }}</li>
+                <li class="list-group-item"><strong>Price:</strong> UGX {{ chick_stock.chick_price }}</li>
+                <li class="list-group-item"><strong>Age:</strong> {{ chick_stock.chicks_period }} weeks</li>
+                <li class="list-group-item"><strong>Date Added:</strong> {{ chick_stock.date_added|date:"Y-m-d" }}</li>
+                <li class="list-group-item"><strong>Registered By:</strong> {{ chick_stock.registered_by }}</li>
+            </ul>
+        </div>
+        <div class="card-footer text-end">
+            <a href="{% url 'chick_stock_update' chick_stock.pk %}" class="btn btn-warning">Update</a>
+            <a href="{% url 'chick_stock_delete' chick_stock.pk %}" class="btn btn-danger">Delete</a>
+            <a href="{% url 'manage_stock' %}" class="btn btn-secondary">Back to Stock</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Update Chick Stock{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="mb-4">Update Chick Stock</h2>
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="batch_number" class="form-label">Batch Number</label>
+                    <input type="text" class="form-control" id="batch_number" name="batch_number" value="{{ chick_stock.batch_number }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="chick_type" class="form-label">Chick Type</label>
+                    <input type="text" class="form-control" id="chick_type" name="chick_type" value="{{ chick_stock.chick_type }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="chick_breed" class="form-label">Chick Breed</label>
+                    <input type="text" class="form-control" id="chick_breed" name="chick_breed" value="{{ chick_stock.chick_breed }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="chick_quantity" class="form-label">Quantity</label>
+                    <input type="number" class="form-control" id="chick_quantity" name="chick_quantity" value="{{ chick_stock.chick_quantity }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="chick_price" class="form-label">Price per Chick</label>
+                    <input type="number" class="form-control" id="chick_price" name="chick_price" value="{{ chick_stock.chick_price }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="chicks_period" class="form-label">Age (in weeks)</label>
+                    <input type="number" class="form-control" id="chicks_period" name="chicks_period" value="{{ chick_stock.chicks_period }}" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+                <a href="{% url 'chick_stock_detail' chick_stock.pk %}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

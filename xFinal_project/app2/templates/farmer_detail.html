@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Farmer Detail{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Farmer Details: {{ farmer.farmer_name }}</h2>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ farmer.farmer_name }}</h5>
+            <p><strong>Date of Birth:</strong> {{ farmer.date_of_birth }}</p>
+            <p><strong>Gender:</strong> {{ farmer.gender }}</p>
+            <p><strong>NIN:</strong> {{ farmer.farmer_nin }}</p>
+            <p><strong>Phone Number:</strong> {{ farmer.phone_number }}</p>
+            <p><strong>Email:</strong> {{ farmer.email }}</p>
+            <p><strong>Address:</strong> {{ farmer.address }}</p>
+            <p><strong>Recommender Name:</strong> {{ farmer.recommender_name }}</p>
+            <p><strong>Recommender NIN:</strong> {{ farmer.recommender_nin }}</p>
+            <p><strong>Recommender Phone:</strong> {{ farmer.recommender_tel }}</p>
+            <p><strong>Farmer Type:</strong> {{ farmer.farmer_type }}</p>
+            <p><strong>Registration Date:</strong> {{ farmer.registration_date }}</p>
+        </div>
+    </div>
+    <div class="mt-3">
+        <a href="{% url 'farmer_update' farmer.pk %}" class="btn btn-warning">Update Details</a>
+        <a href="{% url 'list_farmers' %}" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+bash
+Ignore Python virtual environment
+venv/
+env/
+ENV/
+
+python cache
+_pycache_/
+*.py[cod]
+
+Django
+*.sqlite3
+db.sqlite3
+
+IDEAS
+.vscode/
+.idea/
+
+OS files
+.DS_store
+Thumbs.db

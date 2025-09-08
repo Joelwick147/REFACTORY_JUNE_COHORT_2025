@@ -1,0 +1,11 @@
+/* Add margins to the login card */
+#welcomeText {
+    margin-top: 200px;
+    text-align: center;
+}
+
+body {
+    margin-top: 15px;
+}
+
+

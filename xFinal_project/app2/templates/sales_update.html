@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Delete Sale{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="mb-4 text-danger">Confirm Deletion</h2>
+    <div class="card shadow-sm border-danger">
+        <div class="card-body">
+            <p class="card-text">Are you sure you want to delete the sale record for:</p>
+            <ul class="list-group list-group-flush mb-3">
+                <li class="list-group-item"><strong>Sale ID:</strong> {{ sale.pk }}</li>
+                <li class="list-group-item"><strong>Customer:</strong> {{ sale.customer.full_name }}</li>
+                <li class="list-group-item"><strong>Date:</strong> {{ sale.sale_date|date:"Y-m-d" }}</li>
+                <li class="list-group-item"><strong>Quantity:</strong> {{ sale.quantity_sold }}</li>
+            </ul>
+            <form method="post" action="{% url 'sale_delete' sale.pk %}" class="d-inline">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Yes, Delete</button>
+            </form>
+            <a href="{% url 'sale_detail' sale.pk %}" class="btn btn-secondary">Cancel</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

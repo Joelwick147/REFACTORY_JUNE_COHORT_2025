@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Brooder Manager Dashboard{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="mb-4">Brooder Manager Dashboard</h2>
+
+    <div class="row">
+        <div class="col-md-3 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-boxes"></i> Chick Stock Summary</h5>
+                    <p class="card-text">Total Batches: {{ chick_stock.count }}</p>
+                    <a href="{% url 'manage_stock' %}" class="btn btn-primary btn-sm mt-2">Manage Stock</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-clipboard-list"></i> Pending Requests</h5>
+                    <p class="card-text">You have {{ pending_requests.count }} pending requests.</p>
+                    <a href="{% url 'manage_requests' %}" class="btn btn-warning btn-sm mt-2">View Requests</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-chart-bar"></i> Sales Summary</h5>
+                    <p class="card-text">{{ recent_sales.count }} sales processed recently.</p>
+                    <a href="{% url 'view_all_sales' %}" class="btn btn-success btn-sm mt-2">View All Sales</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-users"></i> Farmer Records</h5>
+                    <p class="card-text">View and search through all registered farmers.</p>
+                    <a href="{% url 'list_farmers' %}" class="btn btn-info btn-sm mt-2">View All Farmers</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow-sm mt-5">
+        <div class="card-body">
+            <h5 class="card-title">Recent Sales</h5>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Sale ID</th>
+                            <th>Customer NIN</th>
+                            <th>Quantity</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for sale in recent_sales %}
+                        <tr>
+                            <td>{{ sale.pk }}</td>
+                            <td>{{ sale.customer.farmer_nin }}</td>
+                            <td>{{ sale.quantity_sold }}</td>
+                            <td>UGX {{ sale.amount|floatformat:0 }}</td>
+                            <td>{{ sale.sale_date|date:"Y-m-d" }}</td>
+                            <td>
+                                <a href="{% url 'sale_detail' sale.pk %}" class="btn btn-info btn-sm">View</a>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="6" class="text-center">No sales records found.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

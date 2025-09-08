@@ -1,0 +1,26 @@
+h1 {
+    color: green;
+}
+
+#purpleP {
+    color: pink;
+    font-style: normal;
+}
+
+p {
+    font-style: italic;
+}
+
+img {
+    height: 200px;
+}
+/* This is a comment */
+
+#greenP {
+    color: yellow;
+}
+
+#css-intro {
+    background-image: url("/img/pernandez.jpeg");
+    backdrop-filter: blur(10px);
+}

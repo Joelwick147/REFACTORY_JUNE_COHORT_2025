@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Delete Farmer{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Confirm Deletion</h2>
+    <div class="alert alert-danger" role="alert">
+        Are you sure you want to delete the record for <strong>{{ farmer.farmer_name }}</strong>? This action cannot be undone.
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+        <a href="{% url 'farmer_detail' farmer.pk %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

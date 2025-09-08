@@ -1,0 +1,16 @@
+.row {
+    border: 5px dotted orange;
+}
+
+.col, .col-6, .col-2, .col-10 {
+    border: 2px solid red;
+}
+
+.container {
+    border: 10px dashed purple;
+}
+
+
+.container-fluid {
+    border: 10px dashed blue;
+}

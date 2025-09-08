@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Young4Chicks - Users</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/young-for-chicks/css/bootstrap-5.3.6/css/bootstrap.css">
+    <link rel="stylesheet" href="/young-for-chicks/css/custom.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2">
+                <div w3-include-html="includes/sidebar.html"></div>
+            </div>
+
+            <div class="col-10">
+                <div class="card border-primary">
+                    <div class="card-header d-flex justify-content-between">
+                        <h4>Users</h4>
+                        <button class="btn btn-primary btn-sm text-white" data-bs-toggle="modal"
+                            data-bs-target="#addUserModal">Add Users</button>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Gender</th>
+                                    <th>Date of Birth</th>
+                                    <th>NIN</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Esenu Joanna</td>
+                                    <td>Female</td>
+                                    <td>2000-01-12</td>
+                                    <td>CF23423JLJSDF23423</td>
+                                    <td>
+                                        <i class="fa fa-pencil"></i>
+                                        <i class="fa fa-trash"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Esenu Joanna</td>
+                                    <td>Female</td>
+                                    <td>2000-01-12</td>
+                                    <td>CF23423JLJSDF23423</td>
+                                    <td>
+                                        <i class="fa fa-pencil"></i>
+                                        <i class="fa fa-trash"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Esenu Joanna</td>
+                                    <td>Female</td>
+                                    <td>2000-01-12</td>
+                                    <td>CF23423JLJSDF23423</td>
+                                    <td>
+                                        <i class="fa fa-pencil"></i>
+                                        <i class="fa fa-trash"></i>
+                                    </td>
+                                </tr>
+                                
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Users Modal -->
+    <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add Farmer</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="mb-3">
+                            <label for="fullname" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="fullname">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="gender" class="form-label">Gender</label>
+                            <select class="form-select"
+                                aria-label="Default select example">
+                                <option selected>Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="dob" class="form-label">Date of birth</label>
+                            <input type="date" class="form-control" id="dob">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="nin" class="form-label">National Id Number</label>
+                            <input type="text" class="form-control" id="nin">
+                        </div>
+
+                        <!-- Recommender name, recommender tin contact -->
+
+                        <a class="btn btn-primary" href="#">
+                            Add user
+                        </a>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="css/bootstrap-5.3.6/js/bootstrap.bundle.js"></script>
+    <script src="/young-for-chicks/js/include.js"></script>
+</body>
+
+</html>

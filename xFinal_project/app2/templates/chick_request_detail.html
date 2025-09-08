@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Chick Request Detail{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="mb-4">Chick Request Detail</h2>
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title">Request #{{ chick_request.pk }}</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Farmer NIN:</strong> {{ chick_request.farmer.farmer_nin }}</li>
+                <li class="list-group-item"><strong>Farmer Type:</strong> {{ chick_request.farmer_type }}</li>
+                <li class="list-group-item"><strong>Chick Type:</strong> {{ chick_request.chick_type }}</li>
+                <li class="list-group-item"><strong>Chick Breed:</strong> {{ chick_request.chick_breed }}</li>
+                <li class="list-group-item"><strong>Quantity:</strong> {{ chick_request.quantity_requested }}</li>
+                <li class="list-group-item"><strong>Status:</strong> {{ chick_request.request_status }}</li>
+                <li class="list-group-item"><strong>Request Date:</strong> {{ chick_request.request_date|date:"Y-m-d" }}</li>
+                <li class="list-group-item"><strong>Approval Date:</strong> {{ chick_request.approval_date|date:"Y-m-d"|default:"N/A" }}</li>
+            </ul>
+        </div>
+        <div class="card-footer text-end">
+            {% if user.userprofile.role == 'brooder_manager' %}
+                <a href="{% url 'manage_requests' %}" class="btn btn-secondary">Back to Requests</a>
+            {% elif user.userprofile.role == 'sales_rep' %}
+                <a href="{% url 'sales_rep_dashboard' %}" class="btn btn-secondary">Back to Dashboard</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

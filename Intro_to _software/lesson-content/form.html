@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <link rel="stylesheet" href="css/bootstrap-5.3.6-dist/css/bootstrap.css">
+
+</head>
+
+<body>
+    <h1>Please sign up here</h1>
+
+    <div class="card">
+        <div class="card-body">
+            <form id="registration-form" action="">
+                <div class="mb-3">
+                    <label for="first-name" class="form-label">First Name</label>
+                    <input type="email" class="form-control" id="first-name" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">This is your first name.</div>
+                </div>
+
+
+
+                <label for="last-name">Last Name</label>
+                <input name="last-name" id="last-name" type="text" placeholder="Enter your last name">
+                <br>
+
+                <label for="password">Password</label>
+                <input name="password" id="password" type="password" placeholder="Enter your password">
+                <br>
+
+                <label for="password-repeat">Password repeat</label>
+                <input name="password-repeat" id="password-repeat" type="password" placeholder="Repeat your password">
+                <br>
+
+                <label for="phone">Phone Number</label>
+                <input name="phone" id="phone" type="tel" placeholder="Enter your phone">
+                <br>
+
+                <label for="dob">Date of Birth</label>
+                <input name="dob" id="dob" type="date">
+                <br>
+
+
+                <label for="cars">Choose your favorite car:</label>
+                <select id="cars" name="cars" size="3" multiple>
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="fiat">Fiat</option>
+                    <option value="audi">Audi</option>
+                </select>
+                <br>
+
+                <label for="message">Tell us about yourself</label>
+                <textarea name="message" rows="10" cols="30">
+            The cat was playing in the garden.
+        </textarea>
+                <br>
+                <br>
+
+                <button type="submit" class="btn btn-info">Register</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        document.getElementById("registration-form").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent actual form submission
+
+            const password = document.getElementById("password").value;
+            const passwordRepeat = document.getElementById("password-repeat").value;
+
+            if (password !== passwordRepeat) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            const formData = {
+                firstName: document.getElementById("first-name").value,
+                lastName: document.getElementById("last-name").value,
+                password: password,
+                phone: document.getElementById("phone").value,
+                dob: document.getElementById("dob").value
+            };
+
+            console.log("Form Data Submitted:", formData);
+            alert("Form submitted successfully! Check the console for data.");
+        });
+    </script>
+    <script src="css/bootstrap-5.3.6-dist/js/bootstrap.bundle.js"></script>
+
+
+</body>
+
+</html>
